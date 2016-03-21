@@ -54,6 +54,9 @@ NSString * const ID = @"cycleCell";
 
 @property (nonatomic, assign) NSInteger networkFailedRetryCount;
 
+@property (nonatomic, strong) UIImageView *mengCengImageView;
+
+
 @end
 
 @implementation SDCycleScrollView
@@ -144,6 +147,11 @@ NSString * const ID = @"cycleCell";
     mainView.delegate = self;
     [self addSubview:mainView];
     _mainView = mainView;
+    
+    UIImageView *mengCengImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0,CGRectGetHeight(self.frame) - 44 , CGRectGetWidth(self.frame), 44)];
+    mengCengImageView.image = [UIImage imageNamed:@"home_banner_projection_under"];
+    _mengCengImageView = mengCengImageView;
+    [self addSubview:mengCengImageView];
 }
 
 
@@ -314,6 +322,11 @@ NSString * const ID = @"cycleCell";
     self.imagePathsGroup = [localizationImageNamesGroup copy];
 }
 
+- (void)setHidesMengCengForSinglePage:(BOOL)hidesMengCengForSinglePage
+{
+    [_mengCengImageView setHidden:hidesMengCengForSinglePage];
+}
+
 #pragma mark - actions
 
 
@@ -436,6 +449,9 @@ NSString * const ID = @"cycleCell";
     if (self.backgroundImageView) {
         self.backgroundImageView.frame = self.bounds;
     }
+    
+    _mengCengImageView.frame = CGRectMake(0,CGRectGetHeight(self.frame) - 44 , CGRectGetWidth(self.frame), 44);
+    [self insertSubview:self.mengCengImageView belowSubview:self.pageControl];
     
 }
 
