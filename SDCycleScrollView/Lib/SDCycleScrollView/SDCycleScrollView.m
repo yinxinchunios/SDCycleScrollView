@@ -450,7 +450,7 @@ NSString * const ID = @"cycleCell";
         self.backgroundImageView.frame = self.bounds;
     }
     
-    _mengCengImageView.frame = CGRectMake(0,CGRectGetHeight(self.frame) - 44 , CGRectGetWidth(self.frame), 44);
+    _mengCengImageView.frame = CGRectMake(0,CGRectGetHeight(self.frame) - 41.8 , CGRectGetWidth(self.frame), 44);
     [self insertSubview:self.mengCengImageView belowSubview:self.pageControl];
     
 }
